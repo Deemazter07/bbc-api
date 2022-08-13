@@ -1,25 +1,25 @@
 import { Injectable } from '@nestjs/common';
-import { AdminService } from 'src/admin/admin.service';
+import { UserService } from 'src/user/user.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { UpdateAdminDto } from 'src/admin/dto/update-admin.dto';
+import { UpdateUserDto } from 'src/user/dto/update-user.dto';
 import * as moment from 'moment';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly adminService: AdminService,
+    private readonly userService: UserService,
     private readonly jwtService: JwtService,
   ) {}
 
   async getAdminProfile(uuid: string): Promise<any> {
-    const admin = await this.adminService.findAdminById(uuid);
+    const admin = await this.userService.findUserById(uuid);
     return admin;
   }
 
   async loginAdmin(email: string, password: string) {
     try {
-      let admin = await this.adminService.findOneAdmin({ email });
+      let admin = await this.userService.findOneUser({ email });
       if (await bcrypt.compare(password, admin.password)) {
         const accessToken = this.jwtService.sign({
           uuid: admin.uuid,
@@ -30,11 +30,11 @@ export class AuthService {
         console.log('accessToken', accessToken);
 
         admin['accessToken'] = accessToken;
-        let updateJwt: UpdateAdminDto = {
+        let updateJwt: UpdateUserDto = {
           jwt_token: accessToken,
           last_login: moment().format(),
         };
-        await this.adminService.update(admin.uuid, updateJwt);
+        await this.userService.update(admin.uuid, updateJwt);
         return {
           accessToken: accessToken,
           message: 'Log In successfully',

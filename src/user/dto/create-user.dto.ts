@@ -1,6 +1,6 @@
 import { IsString, IsOptional, IsNotEmpty, IsEmail } from 'class-validator';
 
-export class CreateAdminDto {
+export class CreateUserDto {
   @IsString()
   @IsNotEmpty({ message: 'Name Must Be Filled' })
   name: string;
@@ -25,4 +25,8 @@ export class CreateAdminDto {
   @IsString()
   @IsOptional()
   is_active?: boolean;
+
+  @IsString()
+  @IsNotEmpty()
+  role: string;
 }

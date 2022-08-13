@@ -3,7 +3,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AdminModule } from './admin/admin.module';
+import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
@@ -26,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
       logging: true,
     }),
-    AdminModule,
+    UserModule,
     AuthModule,
   ],
   controllers: [AppController],
