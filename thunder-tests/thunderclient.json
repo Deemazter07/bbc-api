@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "caa45ffc-4b1b-4521-b01e-0a562306b51e",
+    "colId": "620d3f42-e349-4bf6-99c0-7e1d91060119",
+    "containerId": "",
+    "name": "Create Admin",
+    "url": "{{URL}}admin",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-08-13T06:03:55.938Z",
+    "modified": "2022-08-13T06:06:45.285Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Dimas R\",\n  \"email\": \"dimassukarso@gmail.com\",\n  \"phone\": \"081287715934\",\n  \"password\": \"asdasd\",\n  \"discord_id\": \"mas mas#0701\",\n  \"is_active\": \"true\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c48bc306-de88-46d6-bb87-60295fbeb615",
+    "colId": "7c882bd2-a039-4a40-9283-12171c1c559d",
+    "containerId": "",
+    "name": "Admin Login",
+    "url": "{{URL}}auth/login_admin",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-08-13T06:08:38.411Z",
+    "modified": "2022-08-13T06:11:05.201Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"dimassukarso@gmail.com\",\n  \"password\": \"asdasd\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "905a7d9d-7957-4446-958b-93e6896b616b",
+    "colId": "620d3f42-e349-4bf6-99c0-7e1d91060119",
+    "containerId": "",
+    "name": "Find All Admin",
+    "url": "{{URL}}admin",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-08-13T11:29:37.749Z",
+    "modified": "2022-08-13T11:30:17.245Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
